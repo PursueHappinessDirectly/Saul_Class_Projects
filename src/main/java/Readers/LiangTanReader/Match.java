@@ -17,8 +17,13 @@ public class Match {
 
     public Match(Double[] matchArrayData) {
         match = new ArrayList<>();
+        int j = 0;
         for (int i = 0; i < matchArrayData.length - 1; i++) {
-            match.add(matchArrayData[i]);
+            //match.add(matchArrayData[i]);
+            if (i % 5 == 0 ) {
+                match.add((double) (Math.round(matchArrayData[i + j%5] * 10)));
+                j = j + 1;
+            }
         }
         if (matchArrayData[matchArrayData.length - 1] == 0.0) {
             result = "Radiant";
